@@ -15,12 +15,11 @@ public class Contenido implements Comparable<Contenido>{
 		this.rating = rating;
 		this.tipo = tipo;
 		this.app = app;
-		this.posX = posX;
-		this.posY = posY;
+
 
 	}
 
-	public void draw() {
+	public void draw(int posX, int posY) {
 
 	}
 
@@ -83,6 +82,6 @@ public class Contenido implements Comparable<Contenido>{
 
 	@Override
 	public int compareTo(Contenido o) {
-		return this.rating -o.getRating();
+		return o.getRating() - this.rating ;
 	}
 }

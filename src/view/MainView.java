@@ -23,5 +23,8 @@ public class MainView extends PApplet {
 		background(0);
 		controllerMain.draw();
 	}
+	public void mouseClicked() {
+		controllerMain.ordenar();
+	}
 
 }

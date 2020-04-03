@@ -15,4 +15,9 @@ public class ControllerMain {
 		logic.draw();
 	}
 
+	public void ordenar() {
+		logic.ordenar();
+		
+	}
+
 }

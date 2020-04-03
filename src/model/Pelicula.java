@@ -5,17 +5,16 @@ import processing.core.PApplet;
 public class Pelicula extends Contenido {
 
 	private PApplet app;
-	
+
 	public Pelicula(String nombre, int ano, int rating, String tipo, PApplet app) {
 		super(nombre, ano, rating, tipo, app);
 		this.app = app;
 	}
 
-	public void draw() {
+	public void draw(int posX, int posY) {
 		app.fill(255);
-		app.text(this.getNombre(),getPosX(),getPosY());
-		app.text(this.getAno(),getPosX(),getPosY());
-		app.text(this.getRating(),getPosX(),getPosY());
-	}
+		app.textSize(15);
+		app.text(getNombre() + " " + getAno() + " " + getRating() + "% " + getTipo(), posX, posY);
 
+	}
 }
