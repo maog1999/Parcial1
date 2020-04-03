@@ -1,5 +1,8 @@
 package model;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Collections;
 import java.util.LinkedList;
 
@@ -68,18 +71,91 @@ public class Logic {
 		}
 	}
 
+	public void crearTxt() {
+		try {
+			File myObj = new File("./ordenID.txt");
+			if (myObj.createNewFile()) {
+				System.out.println("Se creo: " + myObj.getName());
+			} else {
+				System.out.println("Ya existe");
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	public void infoNombre() {
+		try {
+			FileWriter myWriter = new FileWriter("./txt/infoNombre.txt");
+			for (Contenido pelissNue : listPelis) {
+				myWriter.write(pelissNue.getNombre().toLowerCase() + " " + pelissNue.getAno() + " " + pelissNue.getRating() + "%  "
+						+ pelissNue.getTipo() + "\n");
+
+			}
+			myWriter.close();
+			System.out.println("Se escribio correctamente");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	public void infoAno() {
+		try {
+			FileWriter myWriter = new FileWriter("./txt/infoAno.txt");
+			for (Contenido pelissNue : listPelis) {
+				myWriter.write(pelissNue.getNombre().toLowerCase() + " " + pelissNue.getAno() + " " + pelissNue.getRating() + "%  "
+						+ pelissNue.getTipo() + "\n");
+
+			}
+			myWriter.close();
+			System.out.println("Se escribio correctamente");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	public void infoRating() {
+		try {
+			FileWriter myWriter = new FileWriter("./txt/infoRating.txt");
+			for (Contenido pelissNue : listPelis) {
+				myWriter.write(pelissNue.getNombre().toLowerCase() + " " + pelissNue.getAno() + " " + pelissNue.getRating() + "%  "
+						+ pelissNue.getTipo() + "\n");
+
+			}
+			myWriter.close();
+			System.out.println("Se escribio correctamente");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	public void infoTipo() {
+		try {
+			FileWriter myWriter = new FileWriter("./txt/infoRating.txt");
+			for (Contenido pelissNue : listPelis) {
+				myWriter.write(pelissNue.getNombre().toLowerCase() + " " + pelissNue.getAno() + " " + pelissNue.getRating() + "%  "
+						+ pelissNue.getTipo() + "\n");
+
+			}
+			myWriter.close();
+			System.out.println("Se escribio correctamente");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public void ordenar() {
 		if (app.mouseX > 74 && app.mouseX < 162 && app.mouseY > 557 && app.mouseY < 587) {//nombre
 			Collections.sort(listPelis,contenidoParcialNombre);
+			infoNombre();
 		}
 		if (app.mouseX > 196 && app.mouseX < 282 && app.mouseY > 557 && app.mouseY < 587) {//ano
 			Collections.sort(listPelis,contenidoParcialAno);
+			infoAno();
 		}
 		if (app.mouseX > 317 && app.mouseX < 403 && app.mouseY > 557 && app.mouseY < 587) {//rting
 			Collections.sort(listPelis);
+			infoRating();
 		}
 		if (app.mouseX > 438 && app.mouseX < 524 && app.mouseY > 557 && app.mouseY < 587) {//tipo
 			Collections.sort(listPelis,contenidoParcialTipo);
+			infoTipo();
 		}
 	}
 }
